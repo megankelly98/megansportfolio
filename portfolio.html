@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Megan's Portfolio - Portfolio</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/hover.css" rel="stylesheet" media="all">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Mukta&family=Quantico:ital,wght@1,700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/90f3671d95.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<!--Navbar-->
+<div><a href="index.html" class="nohover"><img class ="logo" src ="images/logo.png" alt="logo"></a></div>
+<div class="menu-wrap1">
+  <input type="checkbox" class="toggler">
+  <div class="hamburger1">
+    <div></div>
+  </div>
+  <div class="menu1">
+    <div>
+      <div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="photography.html">Photography</a></li>
+          <li><a href="design.html">Design</a></li>
+          <li><a href="digitalart.html">Digital Art</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<nav>
+  <label for="drop" class="toggle">Menu</label>
+  <input type="checkbox" id="drop" />
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li> 
+      <!-- First Tier Drop Down -->
+      <label for="drop-1" class="toggle">Portfolio</label>
+      <a href="portfolio.html" class="hvr-icon-hang">Portfolio <i class="fas fa-sort-down hvr-icon"></i></a>
+      <input type="checkbox" id="drop-1"/>
+      <ul>
+        <li><a href="photography.html">Photography</a></li>
+        <li><a href="design.html">Design</a></li>
+        <li><a href="digitalart.html">Digital Art</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="heading">
+  <h1>Megan's Portfolio</h1>
+</div>
+<section class="photographybox scale-in-center">
+  <div class="containerhome hvr-grow"> <img class="image" src="images/donegal2-2.jpg" alt="image of 4 girls sitting at a beach">
+    <div class="middle">
+      <div class="text"><a href="photography.html">Photography</a></div>
+    </div>
+  </div>
+  <h2>Photography</h2>
+  <p>When you click into the photography page you will see differnet photographs that I have taken on different cameras, feel free to browse through them.</p>
+</section>
+<section class="design scale-in-center">
+  <div class="containerhome hvr-grow"> <img class="image" src="images/mag4small.jpg" alt="pages from a magazine I designed">
+    <div class="middle">
+      <div class="text"><a href="design.html">Design</a></div>
+    </div>
+  </div>
+  <h2>Design</h2>
+  <p>When you click into the design page you will see design work I have done, indluding a magazine and a book cover! Feel free to browse through them.</p>
+</section>
+<section class="digitalart scale-in-center">
+  <div class="containerhome hvr-grow"> <img class="image" src="images/friends.jpg" alt="drawing of 4 girls">
+    <div class="middle">
+      <div class="text"><a href="digitalart.html">Digital Art</a></div>
+    </div>
+  </div>
+  <h2>Digital Art</h2>
+  <p>When you click into the digital art page, you will see any of the digital art I have made. They include drawings of my friends and family. Feel free to browse through them.</p>
+</section>
+<br>
+<!--Footer-->
+<div class="footer">
+  <div class="sitemaplink"> <a href="sitemap.html">
+    <p>Sitemap</p>
+    </a> </div>
+  <div class="contentlogo">
+    <div class="icon_group"> <a class="icons twitter" href="https://www.twitter.com/megan_kelly2"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+      <div class="background_circle"></div>
+      </a> <a class="icons instagram" href ="https://www.instagram.com/photos.by.meg_"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+      <div class="background_circle"></div>
+      </a> <a class="icons pinterest" href="https://www.pinterest.ie/idk_megan"><i class="fa fa-pinterest-p fa-2x" aria-hidden="true"></i>
+      <div class="background_circle"></div>
+      </a></div>
+  </div>
+  <script>var selected = null;
+$(".icon").click(function() {
+  var tempSelected = null;
+  if (selected != null) {
+    tempSelected = selected;
+  }
+  selected = $(this);
+  $(this).find(".background_circle").css({ display: "block", opacity: "1" });
+
+  var color = $(this).find(".background_circle").css("backgroundColor");
+  console.log(color);
+  var tl = new TimelineMax();
+  tl
+    .to($(this).find(".background_circle"), 3, {
+      scale: 100,
+      transformOrigin: "50% 50%",
+      ease: Linear.easeIn
+    })
+    .to(
+      $("body"),
+      0,
+      {
+        backgroundColor: color
+      },
+      "-=2"
+    );
+
+  if (
+    tempSelected !== null &&
+    $(this).attr("class") !== tempSelected.attr("class")
+  ) {
+    TweenMax.to(
+      tempSelected.find(".background_circle"),
+      0,
+      {
+        opacity: 0,
+        scale: 0,
+        transformOrigin: "50% 50%",
+        ease: Linear.easeIn
+      },
+      "-=3"
+    );
+  }
+});
+</script> 
+</div>
+</body>
+</html>
